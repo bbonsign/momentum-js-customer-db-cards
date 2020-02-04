@@ -31,22 +31,45 @@ function capitalize(string) {
     }
 }
 
+// arr should be an array of strings, all of which should be capitalized (first letter)
+// returns an array of capitalized strings
+function capitalizeArray(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = capitalize(arr[i])
+    }
+    return arr
+}
+
 
 
 
 //  =================== Functions using customer objects ========================
 // customer should be an object from the array customers" in customers.js
+// Most of these return strings that will be added as textContent to html elements
+// in the createCard function
 function customerName(customer) {
     let components = [customer['name'].title + '.', customer['name'].first, customer['name'].last]
-    for (let i = 0; i < components.length; i++) {
-        components[i] = capitalize(components[i])
-    }
+    components = capitalizeArray(components)
     return components.join(' ')
 }
+function customerLocation(customer) {
+    let splitStreet = customer.location.street.split(' ')
+    let splitCity = customer.location.city.split(' ')
 
-function customerLocation (customer) {
+    let street = capitalizeArray(splitStreet).join(' ')
+    let city = capitalizeArray(splitCity).join(' ')
+    let state = nameToAbbr(customer.location.state)
+    let postcode = customer.location.postcode
 
+    return `${street}'\n'${city}, ${state} ${postcode}`
 }
+
+function customerDOB(customer) {
+    let dob = customer.dob.slice(0,10)
+    let dobDate = moment(dob).format('MMM Do YYYY')
+    return `DOB: ${dobDate}`
+}
+
 
 // function createCard(customer) {
 //     const card = createElement('div', ['card', 'flex'])
