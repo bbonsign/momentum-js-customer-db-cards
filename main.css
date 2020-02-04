@@ -6,10 +6,9 @@
     background-color: whitesmoke;
 }
 
-.flex {
+.main {
     display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
+    flex-flow: row wrap;
 }
 
 .h1 {
@@ -17,10 +16,46 @@
     font-weight: bold;
 }
 
-.face {
-    max-width: 100%;
+.card {
+    width: 23%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    background-color: rgba(160, 176, 192,.3);
+    border-radius: 2%;
+    margin: 1%;
 }
 
-.card {
- width: auto;
+.card p {
+    background-color: rgba(160, 176, 192,.3);
 }
+
+
+.face {
+    max-width: 100%;
+    border-radius: 20%;
+}
+
+
+.name {
+    font-size: 1.5rem;
+}
+
+.email {
+    font-size: .75rem;
+}
+
+.location {
+
+}
+
+.dob {
+
+}
+
+.reg {
+
+}
+
+
+

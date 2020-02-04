@@ -2,7 +2,7 @@
 
 // Returns the element and h1 tag for the customer database to be displayed in
 function createMain() {
-    let container = createElement('div', ['flex', 'main'])
+    let container = createElement('div', ['main'])
     let h1 = document.createElement('h1', ['h1'])
     h1.textContent = "Customer Database"
     container.appendChild(h1)
@@ -67,8 +67,11 @@ function capitalizeArray(arr) {
 // Most of these return strings that will be added as textContent to html elements
 // in the createCard function
 function customerName(customer) {
-    let components = [customer['name'].title + '.', customer['name'].first, customer['name'].last]
+    // let components = [customer['name'].title + '.', customer['name'].first, customer['name'].last]
+    let components = [customer['name'].first, customer['name'].last]
+
     components = capitalizeArray(components)
+
     return components.join(' ')
 }
 
@@ -107,8 +110,8 @@ function createCard(customer) {
     img.alt = `Profile picture of ${customerName(customer)}`
 
     let components = [
-        createTextElem('p', ['email'], customer.email),
         createTextElem('p', ['name'], customerName(customer)),
+        createTextElem('p', ['email'], customer.email),
         createTextElem('p', ['location'], customerLocation(customer)),
         createTextElem('p', ['dob'], customerDOB(customer)),
         createTextElem('p', ['reg'], customerSince(customer))
