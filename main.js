@@ -42,7 +42,6 @@ function capitalizeArray(arr) {
 
 
 
-
 //  =================== Functions using customer objects ========================
 // customer should be an object from the array customers" in customers.js
 // Most of these return strings that will be added as textContent to html elements
@@ -52,6 +51,7 @@ function customerName(customer) {
     components = capitalizeArray(components)
     return components.join(' ')
 }
+
 function customerLocation(customer) {
     let splitStreet = customer.location.street.split(' ')
     let splitCity = customer.location.city.split(' ')
@@ -65,10 +65,17 @@ function customerLocation(customer) {
 }
 
 function customerDOB(customer) {
-    let dob = customer.dob.slice(0,10)
-    let dobDate = moment(dob).format('MMM Do YYYY')
+    let dob = customer.dob.slice(0, 10)
+    let dobDate = moment(dob).format('MMM Do, YYYY')
     return `DOB: ${dobDate}`
 }
+
+function customerSince(customer) {
+    let reg = customer.registered.slice(0, 10)
+    let regDate = moment(reg).format('MMM Do, YYYY')
+    return `Customer since: ${regDate}`
+}
+
 
 
 // function createCard(customer) {
