@@ -15,10 +15,18 @@ function createMain() {
 
 // type should be a type of html element, as a string
 // classArr should be an array of strings to be used as HTML classes
-function createElement(type, classArr) {
-    const element = document.createElement(type)
-    element.classList = classArr
+function createElement(type, classList) {
+    let element = document.createElement(type)
+    for (let item of classList) {
+        element.classList.add(item)
+    }
     return element
+}
+
+function createTextElem(type, classList, textContent) {
+    let elem = createElement(type, classList)
+    elem.textContent = textContent
+    return elem
 }
 
 // returns a string with the first character capitalized
@@ -76,13 +84,59 @@ function customerSince(customer) {
     return `Customer since: ${regDate}`
 }
 
+// ========== Create customer card elementss ================
 
+// function imgElem(customer) {
+//     img = createElement('img', ['face'] )
+//     return img
+// }
 
-// function createCard(customer) {
-//     const card = createElement('div', ['card', 'flex'])
-//     const img = createElement('img', ['face'])
-//     img.src = customer['picture']
-//     img.alt = `Profile picture of ${customer.}`
+// function nameElem(customer) {
+
+// }
+
+// function emailElem(customer) {
+
+// }
+
+// function addressElem(customer) {
+
+// }
+
+// function dobElem(customer) {
+
+// }
+
+// function regElem(customer) {
+
 // }
 
 
+function createCard(customer) {
+    const card = createElement('div', ['card', 'flex'])
+
+    const img = createElement('img', ['face'])
+    img.src = customer.picture.medium
+    img.alt = `Profile picture of ${customerName(customer)}`
+
+    let components = [
+        createTextElem('p', ['email'], customer.email),
+        createTextElem('p', ['name'], customerName(customer)),
+        createTextElem('p', ['location'], customerLocation(customer)),
+        createTextElem('p', ['dob'], customerDOB(customer)),
+        createTextElem('p', ['reg'], customerSince(customer))
+    ]
+
+    card.appendChild(img)
+
+    for (let component of components) {
+        card.appendChild(component)
+    }
+    return card
+}
+
+
+// function createTextElem(type,classList,textContent) {
+//     let elem = createElement(type,classList)
+//     elem.textContent = textContent
+// }
