@@ -9,6 +9,16 @@ function createMain() {
     return container
 }
 
+function createPage() {
+    const body = document.querySelector('body')
+    let container = createMain()
+    for (let customer of customers) {
+        container.appendChild(createCard(customer))
+    }
+    body.appendChild(container)
+}
+
+createPage()
 
 
 // ========== Helper functions ============================
@@ -111,6 +121,3 @@ function createCard(customer) {
     }
     return card
 }
-
-let body = document.querySelector('body')
-body.appendChild(createCard(customers[0]))
