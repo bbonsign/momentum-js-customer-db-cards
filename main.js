@@ -23,9 +23,11 @@ function createElement(type, classList) {
     return element
 }
 
-function createTextElem(type, classList, textContent) {
+// innerHTML should mostly be text, mostly just needed HTML to
+// add a <br> in the address later on
+function createTextElem(type, classList, innerHTML) {
     let elem = createElement(type, classList)
-    elem.textContent = textContent
+    elem.innerHTML = innerHTML
     return elem
 }
 
@@ -69,7 +71,7 @@ function customerLocation(customer) {
     let state = nameToAbbr(customer.location.state)
     let postcode = customer.location.postcode
 
-    return `${street}'\n'${city}, ${state} ${postcode}`
+    return `${street}`+'<br>'+`${city}, ${state} ${postcode}`
 }
 
 function customerDOB(customer) {
@@ -84,32 +86,7 @@ function customerSince(customer) {
     return `Customer since: ${regDate}`
 }
 
-// ========== Create customer card elementss ================
-
-// function imgElem(customer) {
-//     img = createElement('img', ['face'] )
-//     return img
-// }
-
-// function nameElem(customer) {
-
-// }
-
-// function emailElem(customer) {
-
-// }
-
-// function addressElem(customer) {
-
-// }
-
-// function dobElem(customer) {
-
-// }
-
-// function regElem(customer) {
-
-// }
+// ========== Create customer card elements ================
 
 
 function createCard(customer) {
@@ -135,8 +112,5 @@ function createCard(customer) {
     return card
 }
 
-
-// function createTextElem(type,classList,textContent) {
-//     let elem = createElement(type,classList)
-//     elem.textContent = textContent
-// }
+let body = document.querySelector('body')
+body.appendChild(createCard(customers[0]))

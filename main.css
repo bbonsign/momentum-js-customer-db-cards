@@ -8,6 +8,8 @@
 
 .flex {
     display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
 }
 
 .h1 {
@@ -20,5 +22,5 @@
 }
 
 .card {
- width: 25%;
+ width: auto;
 }
