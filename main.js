@@ -1,17 +1,14 @@
 // ===========  Build the page ======================
 
 // Returns the element and h1 tag for the customer database to be displayed in
-function createMain() {
-    let container = createElement('div', ['main'])
-    let h1 = document.createElement('h1', ['h1'])
-    h1.textContent = "Customer Database"
-    container.appendChild(h1)
-    return container
-}
-
 function createPage() {
     const body = document.querySelector('body')
-    let container = createMain()
+    let container = createElement('div', ['main'])
+
+    let h1 = document.createElement('h1', ['h1'])
+    h1.textContent = "Customer Database"
+    body.appendChild(h1)
+
     for (let customer of customers) {
         container.appendChild(createCard(customer))
     }
@@ -106,7 +103,7 @@ function createCard(customer) {
     const card = createElement('div', ['card', 'flex'])
 
     const img = createElement('img', ['face'])
-    img.src = customer.picture.medium
+    img.src = customer.picture.large
     img.alt = `Profile picture of ${customerName(customer)}`
 
     let components = [
