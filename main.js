@@ -48,10 +48,7 @@ function capitalize(string) {
 // arr should be an array of strings, all of which should be capitalized (first letter)
 // returns an array of capitalized strings
 function capitalizeArray(arr) {
-    for (let i = 0; i < arr.length; i++) {
-        arr[i] = capitalize(arr[i])
-    }
-    return arr
+    return arr.map((string) => { return capitalize(string) })
 }
 
 //  =================== Functions using customer objects ========================
@@ -74,7 +71,7 @@ function customerLocation(customer) {
     let state = nameToAbbr(customer.location.state)
     let postcode = customer.location.postcode
 
-    return `${street}`+'<br>'+`${city}, ${state} ${postcode}`
+    return `${street}` + '<br>' + `${city}, ${state} ${postcode}`
 }
 
 function customerDOB(customer) {
