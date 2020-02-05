@@ -61,9 +61,7 @@ function capitalizeArray(arr) {
 function customerName(customer) {
     // let components = [customer['name'].title + '.', customer['name'].first, customer['name'].last]
     let components = [customer['name'].first, customer['name'].last]
-
     components = capitalizeArray(components)
-
     return components.join(' ')
 }
 
