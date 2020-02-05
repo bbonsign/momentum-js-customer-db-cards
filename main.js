@@ -1,5 +1,4 @@
 // ===========  Build the page ======================
-
 // Returns the element and h1 tag for the customer database to be displayed in
 function createPage() {
     const body = document.querySelector('body')
@@ -17,9 +16,7 @@ function createPage() {
 
 createPage()
 
-
 // ========== Helper functions ============================
-
 // type should be a type of html element, as a string
 // classArr should be an array of strings to be used as HTML classes
 function createElement(type, classList) {
@@ -56,8 +53,6 @@ function capitalizeArray(arr) {
     }
     return arr
 }
-
-
 
 //  =================== Functions using customer objects ========================
 // customer should be an object from the array customers" in customers.js
@@ -97,8 +92,6 @@ function customerSince(customer) {
 }
 
 // ========== Create customer card elements ================
-
-
 function createCard(customer) {
     const card = createElement('div', ['card', 'flex'])
 
