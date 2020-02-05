@@ -21,9 +21,8 @@ createPage()
 // classArr should be an array of strings to be used as HTML classes
 function createElement(type, classList) {
     let element = document.createElement(type)
-    for (let item of classList) {
-        element.classList.add(item)
-    }
+    element.classList.add(...classList)
+
     return element
 }
 
